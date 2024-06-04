@@ -97,3 +97,17 @@
 .play-button:hover {
   background-color: #e64a19;
 }
+
+.next-button {
+  background-color: #ccc;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.next-button:hover {
+  background-color: #ddd;
+}

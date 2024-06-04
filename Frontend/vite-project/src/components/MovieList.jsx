@@ -1,5 +1,3 @@
-import React from 'react';
-
 function MovieList({ movies, onMovieClick }) {
   return (
     <div className="movie-list">
@@ -15,6 +13,7 @@ function MovieList({ movies, onMovieClick }) {
           </div>
         ))}
       </div>
+      {movies.length > 4 && <button className="next-button">Next</button>}
     </div>
   );
 }

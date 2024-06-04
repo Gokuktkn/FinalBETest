@@ -1,7 +1,7 @@
 import express, { json } from "express";
 import databaseService from "./services/database.service.js";
 import movieRoute from "./routes/movies.route.js";
-import cors from'cors';
+import cors from 'cors';
 
 const app = express();
 const PORT = 1007;
