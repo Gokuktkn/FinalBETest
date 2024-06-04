@@ -1,8 +1,6 @@
 .container {
   font-family: Arial, sans-serif;
   background-color: #FFC559;
-  height:60vh;
-  width:70vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +8,7 @@
   margin: auto;
 }
 
-.content{
+.content {
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -24,6 +22,15 @@
 
 .movie-list {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nav-btn {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
 }
 
 .movies {
@@ -32,6 +39,7 @@
   gap: 20px;
   flex-wrap: wrap;
 }
+
 
 .movie {
   cursor: pointer;
@@ -44,9 +52,21 @@
   transition: transform 0.2s;
 }
 
-.movie img {
+.movie-img {
+  height: 60%;
   width: 100%;
   border-radius: 4px;
+}
+
+.movie-detail-img {
+  height: 60%;
+  border-radius: 5px;
+}
+
+.movie-info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .movie:hover {
@@ -55,11 +75,14 @@
 
 .movie-details {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  gap: 20px;
+  background-color: #fff;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,7 +97,7 @@
   text-align: center;
 }
 
-.close-button {
+.close-btn {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -84,7 +107,7 @@
   cursor: pointer;
 }
 
-.play-button {
+.play-btn {
   background-color: #ff5722;
   color: #fff;
   border: none;
@@ -94,7 +117,7 @@
   margin-top: 20px;
 }
 
-.play-button:hover {
+.play-btn:hover {
   background-color: #e64a19;
 }
 
