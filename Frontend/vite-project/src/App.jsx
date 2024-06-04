@@ -35,8 +35,8 @@ function App() {
           <div className="logo"></div>
           <div className="search"><IoSearch /></div>
         </div>
-        {/* <MovieList movies={movies} onMovieClick={handleMovieClick} />
-        {selectedMovie && <MovieDetails movie={selectedMovie} onClose={handleClose} />} */}
+        <MovieList movies={listData} onMovieClick={handleMovieClick} />
+        {selectedMovie && <MovieDetails movie={selectedMovie} onClose={handleClose} />}
       </div>
     </div>
   );

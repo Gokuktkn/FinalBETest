@@ -5,12 +5,12 @@ function MovieList({ movies, onMovieClick }) {
     <div className="movie-list">
       <h2>Most Popular Movies</h2>
       <div className="movies">
-        {movies.map(movie => (
-          <div key={movie.id} className="movie" onClick={() => onMovieClick(movie)}>
-            <img src={movie.poster} alt={movie.title} />
+        {movies.map((movie) => (
+          <div key={movie.ID} className="movie" onClick={() => onMovieClick(movie)}>
+            <img src={movie.image} alt={movie.name} />
             <div className="movie-info">
-              <h3>{movie.title}</h3>
-              <p>{movie.duration} {movie.year}</p>
+              <h3>{movie.name}</h3>
+              <p>{movie.time} min {movie.year}</p>
             </div>
           </div>
         ))}
@@ -19,4 +19,4 @@ function MovieList({ movies, onMovieClick }) {
   );
 }
 
-export default MovieList
+export default MovieList;

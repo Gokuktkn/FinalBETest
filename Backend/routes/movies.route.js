@@ -6,7 +6,7 @@ const movieRoute = Router();
 movieRoute.post("/", createController);
 movieRoute.put("/:id", updateController);
 movieRoute.delete("/:id", deleteController);
-movieRoute.get("/:id", getMeController);
+movieRoute.get("/getMe/:id", getMeController);
 movieRoute.get("/getAll", getMeAllController);
 
 export default movieRoute;
