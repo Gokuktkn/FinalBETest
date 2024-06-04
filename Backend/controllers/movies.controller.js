@@ -30,10 +30,26 @@ export const createController = async (req, res, next) => {
 export const updateController = async (req, res, next) => {
     const { id } = req.params;
     const updateData = req.body;
-    await movieService.updateData(id, updateData);
-    return res.json({
-        message: "Update Successfully",
-    });
+    const file = req.file;
+
+    try {
+        if (file) {
+            const dataUrl = `data:${file.mimetype};base64,${file.buffer.toString('base64')}`;
+            const fileName = file.originalname.split('.')[0];
+
+            const uploadResult = await cloudinary.uploader.upload(dataUrl, {
+                public_id: fileName + (new Date()).getTime(),
+                resource_type: 'auto',
+            });
+
+            updateData.image = uploadResult.secure_url;
+        }
+
+        await movieService.updateData(id, updateData);
+        res.json({ message: "Update Successfully" });
+    } catch (error) {
+        res.status(500).json({ message: "Error updating movie", error: error.message });
+    }
 };
 
 export const deleteController = async (req, res, next) => {
@@ -58,34 +74,5 @@ export const getMeAllController = async (req, res, next) => {
     return res.json({
         message: "Get me all successfully",
         result,
-    });
-};
-
-export const uploadImgController = async (req, res, next) => {
-    const file = req.file;
-
-    if (!file) {
-        return res.status(400).json({ error: 'Không có tệp được tải lên.' });
-    }
-    const dataUrl = `data:${file.mimetype};base64,${file.buffer.toString('base64')}`;
-    const fileName = file.originalname.split('.')[0];
-
-    cloudinary.uploader.upload(dataUrl, {
-        public_id: fileName,
-        resource_type: 'auto',
-    }, (err, result) => {
-        if (result) {
-            res.json({
-                message: 'Tệp được tải lên thành công.', data: {
-                    url: result.secure_url
-                }
-            });
-            return;
-        } else {
-            res.json({
-                message: err,
-                data: null
-            })
-        }
     });
 };
