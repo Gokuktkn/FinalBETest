@@ -2,7 +2,7 @@ import MoviesModel from "../models/movies.model.js";
 
 class MovieService {
     async getData(name) {
-        const movie = await MoviesModel.findOne({ name });
+        const movie = await MoviesModel.find({ name: { $regex: name, $options: 'i' } });
         return movie;
     }
 
