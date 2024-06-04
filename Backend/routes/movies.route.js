@@ -20,7 +20,7 @@ const movieRoute = Router();
 movieRoute.post("/", createController);
 movieRoute.put("/:id", updateController);
 movieRoute.delete("/:id", deleteController);
-movieRoute.get("/getMe/:id", getMeController);
+movieRoute.get("/getMe/:name", getMeController);
 movieRoute.get("/getAll", getMeAllController);
 movieRoute.post("/upload", upload.single('file'), uploadImgController);
 

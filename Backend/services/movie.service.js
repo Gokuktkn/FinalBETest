@@ -1,8 +1,8 @@
 import MoviesModel from "../models/movies.model.js";
 
 class MovieService {
-    async getData(id) {
-        const movie = await MoviesModel.findOne({ ID: id });
+    async getData(name) {
+        const movie = await MoviesModel.findOne({ name });
         return movie;
     }
 

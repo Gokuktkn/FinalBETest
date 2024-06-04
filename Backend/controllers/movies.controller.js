@@ -45,8 +45,8 @@ export const deleteController = async (req, res, next) => {
 };
 
 export const getMeController = async (req, res, next) => {
-    const { id } = req.params;
-    const result = await movieService.getData(id);
+    const { name } = req.params;
+    const result = await movieService.getData(name);
     return res.json({
         message: "Get me successfully",
         result,
